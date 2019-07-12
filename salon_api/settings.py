@@ -27,7 +27,7 @@ SECRET_KEY = '%_(q!1a-5ollj1tc_tr*vcv@=9il97nt30n@po1ovr=aym8-#p'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1', 'salonowners-api.herokuapp.com']
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1', 'salonowners-owners_api.herokuapp.com']
 
 
 
@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'api',
+    'owners_api',
+    'jobs_api',
     'rest_framework',
     'rest_framework.authtoken',
     'rest_auth',
@@ -143,7 +144,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 
 
-AUTH_USER_MODEL = 'api.User'
+AUTH_USER_MODEL = 'owners_api.User'
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (

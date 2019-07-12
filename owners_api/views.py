@@ -1,9 +1,9 @@
 from rest_framework import viewsets
-from api.models import User
-from api.serializers import UserSerializer
+from owners_api.models import User
+from owners_api.serializers import UserSerializer
 from rest_framework.permissions import AllowAny
-from api.permissions import IsLoggedInUserOrAdmin, IsAdminUser
-from api.models import User, UserProfile
+from owners_api.permissions import IsLoggedInUserOrAdmin, IsAdminUser
+from owners_api.models import User, UserProfile
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -23,6 +23,6 @@ class UserViewSet(viewsets.ModelViewSet):
                 or self.action == 'partial_update':
             permission_classes = [IsLoggedInUserOrAdmin]
         elif self.action == 'destroy':
-            permission_classes = [IsAdminUser]
+            permission_classes = [IsLoggedInUserOrAdmin]
 
         return [permission() for permission in permission_classes]
