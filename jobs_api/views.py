@@ -18,3 +18,6 @@ class JobViewSet(viewsets.ModelViewSet):
         elif self.action == 'destroy' or self.action == 'partial_update':
             permission_classes = [IsAdminUser]
 
+        return [permission() for permission in permission_classes]
+
+

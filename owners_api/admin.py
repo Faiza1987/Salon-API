@@ -11,6 +11,7 @@ class UserProfileInline(admin.StackedInline):
 
 admin.site.register(User)
 
+
 class UserAdmin(BaseUserAdmin):
     fieldsets = (
         (None, {'fields': ('email', 'password')}),
