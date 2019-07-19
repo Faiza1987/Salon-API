@@ -1,12 +1,13 @@
 from rest_framework import serializers
 from jobs_api.models import Job
-
+from owners_api.models import User
 
 class JobSerializer(serializers.ModelSerializer):
 
-    owner = serializers.HyperlinkedIdentityField(
+    owner = serializers.HyperlinkedRelatedField(
         view_name="user-detail",
-        default=serializers.CurrentUserDefault()
+        default=serializers.CurrentUserDefault(),
+        queryset=User.objects.all(),
     )
 
     class Meta:

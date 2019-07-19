@@ -19,7 +19,6 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         view_name='job-detail'
     )
 
-
     class Meta:
         model = User
         fields = ('url', 'email', 'first_name', 'last_name',
