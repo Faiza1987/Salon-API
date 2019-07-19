@@ -4,11 +4,12 @@ from jobs_api.models import Job
 
 class JobSerializer(serializers.ModelSerializer):
 
-    owner = serializers.HiddenField(
+    owner = serializers.HyperlinkedIdentityField(
+        view_name="owner-detail",
         default=serializers.CurrentUserDefault()
     )
 
     class Meta:
         model = Job
         fields = ('url', "title", "hourly_rate", "company", "address", "city", "state", "zip_code",
-                  "description", "contact_email", "owner_url")
+                  "description", "contact_email", "owner")
