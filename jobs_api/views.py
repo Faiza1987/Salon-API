@@ -4,7 +4,7 @@ from rest_framework.permissions import AllowAny
 from jobs_api.permissions import IsLoggedInUserOrAdmin, IsAdminUser
 from rest_framework import viewsets
 from jobs_api.serializers import JobSerializer
-
+from rest_framework import generics
 
 class JobViewSet(viewsets.ModelViewSet):
     queryset = Job.objects.all()
@@ -20,10 +20,13 @@ class JobViewSet(viewsets.ModelViewSet):
         elif self.action == 'destroy':
             permission_classes = [IsAdminUser]
 
-        # if self.action in ('list', 'create', 'retrieve', 'update', 'partial_update', 'destroy'):
-        #     permission_classes = [IsAdminUser]
-        # elif self.action in
-
         return [permission() for permission in permission_classes]
+
+
+class OwnerJobList(generics.ListAPIView):
+    serializer_class = JobSerializer
+
+    def get_queryset(self):
+        return Job.objects.filter(owner=self.request.user)
 
 

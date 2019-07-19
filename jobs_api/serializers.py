@@ -5,7 +5,7 @@ from jobs_api.models import Job
 class JobSerializer(serializers.ModelSerializer):
 
     owner = serializers.HyperlinkedIdentityField(
-        view_name="owner-detail",
+        view_name="user-detail",
         default=serializers.CurrentUserDefault()
     )
 
