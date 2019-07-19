@@ -11,4 +11,4 @@ class JobSerializer(serializers.ModelSerializer):
     class Meta:
         model = Job
         fields = ('url', "title", "hourly_rate", "company", "address", "city", "state", "zip_code",
-                  "description", "contact_email", "owner")
+                  "description", "contact_email", "owner_url")
