@@ -1,11 +1,11 @@
 from django.shortcuts import render
 from jobs_api.models import Job
 from rest_framework.permissions import AllowAny
-from jobs_api.permissions import IsLoggedInUserOrAdmin, IsAdminUser
+# from jobs_api.permissions import IsLoggedInUserOrAdmin, IsAdminUser
 from rest_framework import viewsets
 from jobs_api.serializers import JobSerializer
 from rest_framework import generics
-
+from rest_framework import permissions
 
 class JobViewSet(viewsets.ModelViewSet):
     queryset = Job.objects.all()
@@ -16,10 +16,10 @@ class JobViewSet(viewsets.ModelViewSet):
 
         if self.action == 'list' or self.action == 'retrieve' or self.action == 'create' or \
                 self.action == 'partial_update' or self.action == 'update':
-            permission_classes = [IsLoggedInUserOrAdmin]
+            permission_classes = [permissions.IsAuthenticated]
 
         elif self.action == 'destroy':
-            permission_classes = [IsAdminUser]
+            permission_classes = [permissions.IsAdminUser]
 
         return [permission() for permission in permission_classes]
 
