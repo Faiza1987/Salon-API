@@ -4,7 +4,9 @@ from owners_api.serializers import UserSerializer
 from rest_framework.permissions import AllowAny
 from owners_api.permissions import IsLoggedInUserOrAdmin, IsAdminUser
 from owners_api.models import User, UserProfile
-
+from rest_framework import generics
+from jobs_api.models import Job
+from jobs_api.serializers import JobSerializer
 
 class UserViewSet(viewsets.ModelViewSet):
     """
@@ -26,3 +28,11 @@ class UserViewSet(viewsets.ModelViewSet):
             permission_classes = [IsLoggedInUserOrAdmin]
 
         return [permission() for permission in permission_classes]
+
+
+class OwnerJobList(generics.ListAPIView):
+    serializer_class = JobSerializer
+
+    def get_queryset(self):
+
+        return Job.objects.filter(owner=self.kwargs['pk'])

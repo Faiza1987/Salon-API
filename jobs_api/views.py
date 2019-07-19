@@ -6,6 +6,7 @@ from rest_framework import viewsets
 from jobs_api.serializers import JobSerializer
 from rest_framework import generics
 
+
 class JobViewSet(viewsets.ModelViewSet):
     queryset = Job.objects.all()
     serializer_class = JobSerializer
@@ -23,7 +24,7 @@ class JobViewSet(viewsets.ModelViewSet):
         return [permission() for permission in permission_classes]
 
 
-class OwnerJobList(generics.ListAPIView):
+class LoggedInUserJobList(generics.ListAPIView):
     serializer_class = JobSerializer
 
     def get_queryset(self):

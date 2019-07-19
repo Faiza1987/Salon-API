@@ -1,7 +1,7 @@
 from django.urls import path, include
 from rest_framework import routers
 from owners_api.views import UserViewSet
-from jobs_api.views import OwnerJobList
+from owners_api.views import OwnerJobList
 
 router = routers.DefaultRouter()
 router.register('users', UserViewSet)
