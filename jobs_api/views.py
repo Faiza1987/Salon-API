@@ -13,9 +13,11 @@ class JobViewSet(viewsets.ModelViewSet):
     def get_permissions(self):
         permission_classes = []
 
-        if self.action == 'list' or self.action == 'retrieve' or self.action :
+        if self.action == 'list' or self.action == 'retrieve' or self.action == 'create' or \
+                self.action == 'partial_update' or self.action == 'update':
             permission_classes = [IsLoggedInUserOrAdmin]
-        elif self.action == 'destroy' or self.action == 'partial_update':
+
+        elif self.action == 'destroy':
             permission_classes = [IsAdminUser]
 
         # if self.action in ('list', 'create', 'retrieve', 'update', 'partial_update', 'destroy'):
