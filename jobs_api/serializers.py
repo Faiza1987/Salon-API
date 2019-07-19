@@ -7,7 +7,7 @@ class JobSerializer(serializers.ModelSerializer):
     owner = serializers.HiddenField(
         default=serializers.CurrentUserDefault()
     )
-    
+
     class Meta:
         model = Job
         fields = ("title", "hourly_rate", "company", "address", "city", "state", "zip_code",
