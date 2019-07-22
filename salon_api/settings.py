@@ -63,6 +63,7 @@ MIDDLEWARE = [
 
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',
+    'https://styledin-frontend.herokuapp.com',
 ]
 
 ROOT_URLCONF = 'salon_api.urls'
