@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="09660069-765f-42df-8f85-338ca0f686fc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/jobs_api/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/jobs_api/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/owners_api/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/owners_api/serializers.py" afterDir="false" />
-    </list>
+    <list default="true" id="09660069-765f-42df-8f85-338ca0f686fc" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
